@@ -92,3 +92,24 @@
 </tr>
 </table>
 
+<!-- Backend & Tools -->
+<table>
+<tr>
+<td align="center" width="33%">
+### 🗄️ Database & Backend
+<img height="50" width="50" src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB"/>  
+<img height="50" width="50" src="https://skillicons.dev/icons?i=firebase" alt="Firebase"/>  
+<img height="50" width="50" src="https://skillicons.dev/icons?i=spring" alt="Spring Boot"/>  
+<img height="50" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/streamlit/streamlit-original.svg" alt="Streamlit"/>
+
+</td>
+<td align="center" width="33%">
+
+### 🛠️ Development Tools
+<img height="50" width="50" src="https://skillicons.dev/icons?i=vscode" alt="VS Code"/>  
+<img height="50" width="50" src="https://skillicons.dev/icons?i=eclipse" alt="Eclipse"/>  
+<img height="50" width="50" src="https://skillicons.dev/icons?i=pycharm" alt="PyCharm"/>  
+<img height="50" width="50" src="https://skillicons.dev/icons?i=git" alt="Git"/>
+
+</td>
+<td align="center" width="33%">
