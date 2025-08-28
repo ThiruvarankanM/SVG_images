@@ -1,9 +1,7 @@
+## 📊 GitHub Streak
 
-
-<!-- GitHub Streak - Real Data Only -->
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ThiruvarankanM&theme=tokyonight&hide_border=true&background=0D1117&stroke=00D9FF&ring=00D9FF&fire=FF6B6B&currStreakLabel=00D9FF"/>
+  <a href="https://git.io/streak-stats">
+    <img src="https://github-readme-streak-stats.herokuapp.com?user=ThiruvarankanM&theme=radical&hide_border=true&border_radius=10&date_format=M%20j%5B%2C%20Y%5D&v=1" alt="GitHub Streak" />
+  </a>
 </p>
-
-
-
