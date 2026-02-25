@@ -1,0 +1,103 @@
+name: "Bug Report"
+description: "Report a reproducible bug to help us improve Jaseci."
+title: "[Bug]: "
+labels: ["Type: Bug"]
+type: "Bug"
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report!
+        Please fill in as much detail as possible to help us reproduce and fix the issue quickly.
+        > **Tip:** Search [existing issues](https://github.com/Jaseci-Labs/jaseci/issues) before submitting to avoid duplicates.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: "A clear and concise one-sentence description of the bug."
+      placeholder: "e.g. `jac run` crashes with a KeyError when using walkers with inherited archetypes."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Provide minimal steps or a code snippet that reliably reproduces the issue."
+      placeholder: |
+        1. Create a `.jac` file with the following code:
+           ```jac
+           # minimal reproduction
+           ```
+        2. Run `jac run <file>.jac`
+        3. Observe the error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected Behavior"
+      description: "What did you expect to happen?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual Behavior"
+      description: "What actually happened? Include the full error output or stack trace if applicable."
+      render: shell
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: "Operating System"
+      options:
+        - "Ubuntu / Debian"
+        - "macOS"
+        - "Windows"
+        - "Other Linux"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: jac-version
+    attributes:
+      label: "Jac Version"
+      description: "Run `jac -V` to get the version."
+      placeholder: "e.g. 0.8.3"
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: "Python Version"
+      description: "Run `python --version` to get the version."
+      placeholder: "e.g. 3.12.2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: "Any other context, logs, screenshots, or related issues that may help."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Pre-submission Checklist"
+      options:
+        - label: "I have searched existing issues and this is not a duplicate."
+          required: true
+        - label: "I have included a minimal reproducible example."
+          required: true
+        - label: "I have included the full error output or stack trace."
+          required: false

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Jaseci Documentation"
+    url: https://www.jac-lang.org/
+    about: "Read the official Jaseci / Jac language docs before filing an issue."
+  - name: "GitHub Discussions"
+    url: https://github.com/Jaseci-Labs/jaseci/discussions
+    about: "Ask general questions and share ideas with the community."
+  - name: "Discord Community"
+    url: https://discord.gg/jaseci
+    about: "Chat with the Jaseci team and community in real time."

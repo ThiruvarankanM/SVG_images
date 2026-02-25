@@ -1,0 +1,67 @@
+name: "Question / Support"
+description: "Ask a question or request support about using Jaseci."
+title: "[Question]: "
+labels: ["Type: Question"]
+type: "Question"
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question or need help? We're happy to assist!
+        > **Before posting**, please check:
+        > - [Jaseci Documentation](https://www.jac-lang.org/)
+        > - [Existing Issues](https://github.com/Jaseci-Labs/jaseci/issues?q=label%3A%22Type%3A+Question%22)
+        > - [Discussions](https://github.com/Jaseci-Labs/jaseci/discussions)
+
+  - type: dropdown
+    id: question-type
+    attributes:
+      label: "Question Type"
+      options:
+        - "How do I...? (usage)"
+        - "Why does...? (behavior explanation)"
+        - "Is it possible to...? (capability)"
+        - "What is the best way to...? (best practice)"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: question
+    attributes:
+      label: "Your Question"
+      description: "State your question clearly and concisely."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: "Context"
+      description: "What are you trying to accomplish? Provide relevant code snippets if applicable."
+      placeholder: |
+        ```jac
+        # relevant code
+        ```
+
+  - type: textarea
+    id: tried
+    attributes:
+      label: "What Have You Tried?"
+      description: "Describe any approaches you've already attempted."
+
+  - type: input
+    id: jac-version
+    attributes:
+      label: "Jac Version"
+      description: "Run `jac -V` to get the version."
+      placeholder: "e.g. 0.8.3"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Pre-submission Checklist"
+      options:
+        - label: "I have checked the documentation and existing issues."
+          required: true

@@ -1,0 +1,65 @@
+name: "Documentation"
+description: "Report missing, incorrect, or unclear documentation."
+title: "[Docs]: "
+labels: ["Type: Documentation"]
+type: "Documentation"
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Good documentation is essential to a great developer experience.
+        Help us improve by reporting gaps, errors, or areas that need clarification.
+
+  - type: dropdown
+    id: doc-type
+    attributes:
+      label: "Type of Documentation Issue"
+      options:
+        - "Missing documentation"
+        - "Incorrect or outdated documentation"
+        - "Unclear or confusing documentation"
+        - "New feature needs documentation"
+        - "Tutorial or guide request"
+        - "API reference improvement"
+        - "Code examples needed"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Clearly describe what is missing, incorrect, or needs improvement."
+    validations:
+      required: true
+
+  - type: input
+    id: location
+    attributes:
+      label: "Location"
+      description: "Link to the page or file with the documentation issue, if applicable."
+      placeholder: "e.g. https://www.jac-lang.org/docs/... or docs/guide/walkers.md"
+
+  - type: textarea
+    id: suggested-change
+    attributes:
+      label: "Suggested Change"
+      description: "If you have a suggestion for how the documentation should be improved, provide it here."
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: "Any other context, screenshots, or references."
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Pre-submission Checklist"
+      options:
+        - label: "I have checked existing issues and this is not a duplicate."
+          required: true
+        - label: "I am willing to contribute a fix via a pull request."
+          required: false
