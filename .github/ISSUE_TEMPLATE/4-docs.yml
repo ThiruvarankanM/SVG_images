@@ -6,12 +6,18 @@ assignees: []
 body:
   - type: markdown
     attributes:
-      value: |
-        Good documentation is the foundation of a great developer experience — thank you for helping us improve it!
-        Please describe the issue clearly in English so we can address it quickly.
-        > Before submitting, check if the topic is already covered at [jac-lang.org](https://www.jac-lang.org/) or in [existing issues](https://github.com/Jaseci-Labs/jaseci/issues).
+      value: "---"
 
-        ---
+  - type: markdown
+    attributes:
+      value: |
+        **Thank you for helping us improve the Jaseci documentation!**
+        Please describe the issue clearly in English so we can address it quickly.
+        Before submitting, check if the topic is already covered at [jac-lang.org](https://www.jac-lang.org/) or in [existing issues](https://github.com/Jaseci-Labs/jaseci/issues).
+
+  - type: markdown
+    attributes:
+      value: "---"
 
   - type: dropdown
     id: doc-issue-type
@@ -54,6 +60,10 @@ body:
     attributes:
       label: "Link to Page / File"
       placeholder: "e.g. https://www.jac-lang.org/docs/... or docs/reference/walkers.md"
+
+  - type: markdown
+    attributes:
+      value: "---"
 
   - type: textarea
     id: description
