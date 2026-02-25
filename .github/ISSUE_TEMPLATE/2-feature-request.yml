@@ -11,31 +11,15 @@ body:
   - type: markdown
     attributes:
       value: |
-        **We love hearing ideas from the community!**
-        Please describe your proposal clearly in English and provide as much context as possible.
+        ### We love hearing ideas from the community!
+
+        Please describe your proposal clearly and provide as much context as possible.
+
         Before submitting, check [existing issues](https://github.com/Jaseci-Labs/jaseci/issues) and [discussions](https://github.com/Jaseci-Labs/jaseci/discussions) to avoid duplicates.
 
   - type: markdown
     attributes:
       value: "---"
-
-  - type: dropdown
-    id: component
-    attributes:
-      label: "Target Package"
-      description: "Which package in the Jaseci stack should this feature be added to?"
-      options:
-        - "jaclang"
-        - "jac-byllm"
-        - "jac-client"
-        - "jac-scale"
-        - "jac-super"
-        - "jaseci (meta-package)"
-        - "LSP / IDE Integration"
-        - "Documentation"
-        - "Other"
-    validations:
-      required: true
 
   - type: dropdown
     id: priority
@@ -53,36 +37,17 @@ body:
       value: "---"
 
   - type: textarea
-    id: problem
+    id: description
     attributes:
-      label: "Problem Statement"
-      description: "What problem does this feature solve?"
-      placeholder: "e.g. There is no way to pass context between walkers during graph traversal without relying on global state, which makes complex agentic flows hard to manage."
-    validations:
-      required: true
-
-  - type: textarea
-    id: solution
-    attributes:
-      label: "Proposed Solution"
-      placeholder: "e.g. Add a `ctx` parameter to `spawn` so walkers can receive context data directly when they are spawned on a node."
+      label: "Feature Description"
+      description: "A clear and concise description of what you want to happen."
+      placeholder: "Describe the feature, the problem it solves, and your proposed solution."
     validations:
       required: true
 
   - type: textarea
     id: example
     attributes:
-      label: "Example / Mockup"
-      description: "Show how this feature would look in Jac code."
-      placeholder: |
-        ```jac
-        walker visitor {
-            can greet with node entry(ctx: dict) {
-                print(ctx['message']);
-            }
-        }
-
-        with entry {
-            root spawn visitor(ctx={'message': 'Hello from context!'});
-        }
-        ```
+      label: "Examples & References"
+      description: "Include code snippets, screenshots, or links that illustrate the feature."
+      placeholder: "Add Jac code snippets, screenshots, or references to similar features in other tools."

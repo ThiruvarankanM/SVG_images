@@ -11,8 +11,10 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Thank you for helping us improve the Jaseci documentation!**
-        Please describe the issue clearly in English so we can address it quickly.
+        ### Thank you for helping us improve the Jaseci documentation!
+
+        Please describe the issue clearly so we can address it quickly.
+
         Before submitting, check if the topic is already covered at [jac-lang.org](https://www.jac-lang.org/) or in [existing issues](https://github.com/Jaseci-Labs/jaseci/issues).
 
   - type: markdown
@@ -59,7 +61,7 @@ body:
     id: location
     attributes:
       label: "Link to Page / File"
-      placeholder: "e.g. https://www.jac-lang.org/docs/... or docs/reference/walkers.md"
+      placeholder: "e.g. https://www.jac-lang.org/docs/... or docs/docs/reference/language/foundation.md"
 
   - type: markdown
     attributes:
@@ -70,7 +72,7 @@ body:
     attributes:
       label: "Description"
       description: "What is missing, incorrect, or needs improvement?"
-      placeholder: "e.g. The reference page for `by llm()` doesn't explain how to handle cases where the model returns an unexpected type — there are no examples showing error handling or type constraints."
+      placeholder: "e.g. The edge filtering section is missing an explanation for `[->:Friend:->]` syntax."
     validations:
       required: true
 
@@ -79,4 +81,4 @@ body:
     attributes:
       label: "Suggested Change"
       description: "How should it be improved? (optional)"
-      placeholder: "e.g. Add a section under `by llm()` showing how to use `sem` strings to constrain model output types, with a working Jac code example."
+      placeholder: "e.g. Add an example for `[->:Friend:->]` in the edge filtering section."
