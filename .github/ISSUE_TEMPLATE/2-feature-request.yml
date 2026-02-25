@@ -2,7 +2,6 @@ name: "Feature Request"
 description: "Propose a new feature or enhancement for Jaseci."
 title: "[Feature]: "
 labels: ["Type: Feature"]
-type: "Feature"
 assignees: []
 body:
   - type: markdown

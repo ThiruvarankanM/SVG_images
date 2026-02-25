@@ -2,7 +2,6 @@ name: "Documentation"
 description: "Report missing, incorrect, or unclear documentation."
 title: "[Docs]: "
 labels: ["Type: Documentation"]
-type: "Documentation"
 assignees: []
 body:
   - type: markdown

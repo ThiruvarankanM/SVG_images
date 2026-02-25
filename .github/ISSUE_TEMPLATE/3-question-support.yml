@@ -2,7 +2,6 @@ name: "Question / Support"
 description: "Ask a question or request support about using Jaseci."
 title: "[Question]: "
 labels: ["Type: Question"]
-type: "Question"
 assignees: []
 body:
   - type: markdown

@@ -2,7 +2,6 @@ name: "Bug Report"
 description: "Report a reproducible bug to help us improve Jaseci."
 title: "[Bug]: "
 labels: ["Type: Bug"]
-type: "Bug"
 assignees: []
 body:
   - type: markdown
