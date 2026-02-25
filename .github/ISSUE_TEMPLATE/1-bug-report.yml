@@ -7,25 +7,25 @@ body:
   - type: dropdown
     id: component
     attributes:
-      label: "Affected Component"
+      label: "Affected Package"
+      description: "Which package in the Jaseci stack does this bug affect?"
       options:
-        - "jaclang — Compiler / Type System"
-        - "jaclang — Runtime / Interpreter"
-        - "jaclang — Standard Library"
-        - "jaclang — CLI (jac run, jac test, etc.)"
-        - "jac-byllm — LLM Integration / by llm() syntax"
-        - "jac-byllm — Semantic Strings (sem)"
-        - "jac-client — JSX / Frontend Compilation"
-        - "jac-client — Vite Bundling"
-        - "jac-scale — Kubernetes / Deployment"
-        - "jac-scale — Redis / MongoDB Integration"
-        - "jac-scale — FastAPI / Server"
-        - "jac-super — Rich CLI Output"
-        - "jaseci — Meta-package / Install"
+        - "jaclang"
+        - "jac-byllm"
+        - "jac-client"
+        - "jac-scale"
+        - "jac-super"
+        - "jaseci (meta-package)"
         - "LSP / IDE Integration"
         - "Other"
     validations:
       required: true
+
+  - type: input
+    id: component-other
+    attributes:
+      label: "If 'Other', specify the affected area"
+      placeholder: "e.g. docs, release scripts, CI/CD"
 
   - type: dropdown
     id: severity
@@ -52,30 +52,50 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: dropdown
     id: jac-version
     attributes:
       label: "Jac Version"
-      description: "Run `jac -V` to get the version."
-      placeholder: "e.g. 0.8.3"
+      description: "Run `jac -V` to check. Select 'Older version' if yours is not listed."
+      options:
+        - "0.11.0"
+        - "Older version"
     validations:
       required: true
 
   - type: input
+    id: jac-version-older
+    attributes:
+      label: "Jac Version (if 'Older version' selected above)"
+      placeholder: "e.g. 0.9.1"
+
+  - type: dropdown
     id: python-version
     attributes:
       label: "Python Version"
-      description: "Run `python --version` to get the version."
-      placeholder: "e.g. 3.12.2"
+      description: "Run `python --version` to check. Select 'Older version' if yours is not listed."
+      options:
+        - "3.13"
+        - "3.12"
+        - "3.11"
+        - "3.10"
+        - "3.9"
+        - "Older version"
     validations:
       required: true
+
+  - type: input
+    id: python-version-older
+    attributes:
+      label: "Python Version (if 'Older version' selected above)"
+      placeholder: "e.g. 3.8.12"
 
   - type: textarea
     id: summary
     attributes:
       label: "Summary"
       description: "A clear, one-sentence description of the bug."
-      placeholder: "e.g. `jac run` crashes with a KeyError when using walkers with inherited archetypes."
+      placeholder: "e.g. Walker fails with a TypeError when spawning on a node with inherited abilities."
     validations:
       required: true
 
@@ -84,12 +104,17 @@ body:
     attributes:
       label: "Steps to Reproduce"
       placeholder: |
-        1. Create a `.jac` file with:
+        1. Create `example.jac`:
            ```jac
-           # minimal reproduction
+           walker greet {
+               can say_hello with `root entry {
+                   print("Hello, Jaseci!");
+               }
+           }
+           with entry { root spawn greet(); }
            ```
-        2. Run `jac run <file>.jac`
-        3. See error
+        2. Run: `jac run example.jac`
+        3. Observe the error
     validations:
       required: true
 
@@ -97,6 +122,7 @@ body:
     id: expected
     attributes:
       label: "Expected Behavior"
+      placeholder: "e.g. Should print `Hello, Jaseci!` and exit cleanly."
     validations:
       required: true
 
@@ -105,6 +131,11 @@ body:
     attributes:
       label: "Actual Behavior"
       description: "Paste the full error output or stack trace."
+      placeholder: |
+        TypeError: 'NoneType' object is not iterable
+        Traceback (most recent call last):
+          File "...", line X, in say_hello
+            ...
       render: shell
     validations:
       required: true
