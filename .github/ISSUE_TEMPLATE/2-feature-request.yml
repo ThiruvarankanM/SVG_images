@@ -4,6 +4,15 @@ title: "[Feature]: "
 labels: ["Type: Feature"]
 assignees: []
 body:
+  - type: markdown
+    attributes:
+      value: |
+        We love hearing ideas from the community — your suggestion could shape the future of Jac!
+        Please describe your proposal clearly in English and provide as much context as possible.
+        > Before submitting, check [existing issues](https://github.com/Jaseci-Labs/jaseci/issues) and [discussions](https://github.com/Jaseci-Labs/jaseci/discussions) to avoid duplicates.
+
+        ---
+
   - type: dropdown
     id: component
     attributes:
@@ -21,12 +30,6 @@ body:
         - "Other"
     validations:
       required: true
-
-  - type: input
-    id: component-other
-    attributes:
-      label: "If 'Other', specify the target area"
-      placeholder: "e.g. release scripts, CI/CD, tooling"
 
   - type: dropdown
     id: priority

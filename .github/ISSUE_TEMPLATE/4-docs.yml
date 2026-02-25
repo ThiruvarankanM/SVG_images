@@ -4,6 +4,15 @@ title: "[Docs]: "
 labels: ["Type: Documentation"]
 assignees: []
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Good documentation is the foundation of a great developer experience — thank you for helping us improve it!
+        Please describe the issue clearly in English so we can address it quickly.
+        > Before submitting, check if the topic is already covered at [jac-lang.org](https://www.jac-lang.org/) or in [existing issues](https://github.com/Jaseci-Labs/jaseci/issues).
+
+        ---
+
   - type: dropdown
     id: doc-issue-type
     attributes:
@@ -39,12 +48,6 @@ body:
         - "Other"
     validations:
       required: true
-
-  - type: input
-    id: doc-section-other
-    attributes:
-      label: "If 'Other', specify the section"
-      placeholder: "e.g. release notes, examples, FAQ"
 
   - type: input
     id: location

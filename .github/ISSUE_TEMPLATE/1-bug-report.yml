@@ -4,6 +4,17 @@ title: "[Bug]: "
 labels: ["Type: Bug"]
 assignees: []
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to report a bug — your contribution helps make Jac better for everyone!
+        Please fill out all sections carefully and in English. The more detail you provide, the faster we can reproduce and fix the issue.
+        > Before submitting, search [existing issues](https://github.com/Jaseci-Labs/jaseci/issues) to avoid duplicates.
+
+        ---
+
+        ## Bug Details
+
   - type: dropdown
     id: component
     attributes:
@@ -21,12 +32,6 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: component-other
-    attributes:
-      label: "If 'Other', specify the affected area"
-      placeholder: "e.g. docs, release scripts, CI/CD"
-
   - type: dropdown
     id: severity
     attributes:
@@ -38,6 +43,19 @@ body:
         - "Low — Minor inconvenience"
     validations:
       required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: "A clear, one-sentence description of the bug."
+      placeholder: "e.g. Walker fails with a TypeError when spawning on a node with inherited abilities."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Environment"
 
   - type: dropdown
     id: os
@@ -52,69 +70,39 @@ body:
     validations:
       required: true
 
-  - type: dropdown
+  - type: input
     id: jac-version
     attributes:
       label: "Jac Version"
-      description: "Run `jac -V` to check. Select 'Older version' if yours is not listed."
-      options:
-        - "0.11.0"
-        - "Older version"
+      description: "Run `jac -V` to get the version."
+      placeholder: "e.g. 0.11.0"
     validations:
       required: true
 
   - type: input
-    id: jac-version-older
-    attributes:
-      label: "Jac Version (if 'Older version' selected above)"
-      placeholder: "e.g. 0.9.1"
-
-  - type: dropdown
     id: python-version
     attributes:
       label: "Python Version"
-      description: "Run `python --version` to check. Select 'Older version' if yours is not listed."
-      options:
-        - "3.13"
-        - "3.12"
-        - "3.11"
-        - "3.10"
-        - "3.9"
-        - "Older version"
+      description: "Run `python --version` to get the version."
+      placeholder: "e.g. 3.12.2"
     validations:
       required: true
 
-  - type: input
-    id: python-version-older
+  - type: markdown
     attributes:
-      label: "Python Version (if 'Older version' selected above)"
-      placeholder: "e.g. 3.8.12"
-
-  - type: textarea
-    id: summary
-    attributes:
-      label: "Summary"
-      description: "A clear, one-sentence description of the bug."
-      placeholder: "e.g. Walker fails with a TypeError when spawning on a node with inherited abilities."
-    validations:
-      required: true
+      value: "## Reproduction"
 
   - type: textarea
     id: reproduce
     attributes:
       label: "Steps to Reproduce"
       placeholder: |
-        1. Create `example.jac`:
+        1. Create a `.jac` file with minimal reproduction code:
            ```jac
-           walker greet {
-               can say_hello with `root entry {
-                   print("Hello, Jaseci!");
-               }
-           }
-           with entry { root spawn greet(); }
+           # minimal reproduction
            ```
-        2. Run: `jac run example.jac`
-        3. Observe the error
+        2. Run: `jac run <file>.jac`
+        3. See error
     validations:
       required: true
 
