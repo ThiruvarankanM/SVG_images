@@ -4,57 +4,23 @@ title: "[Feature]: "
 labels: ["Type: Feature"]
 assignees: []
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thanks for suggesting an improvement to Jaseci!
-        Please provide as much context as possible so we can evaluate and prioritize your request.
-        > **Tip:** Search [existing issues](https://github.com/Jaseci-Labs/jaseci/issues) before submitting to avoid duplicates.
-
-  - type: textarea
-    id: problem
-    attributes:
-      label: "Problem Statement"
-      description: "Is your feature request related to a problem? Describe it clearly."
-      placeholder: "e.g. I find it frustrating when I have to manually re-declare types across multiple archetypes..."
-    validations:
-      required: true
-
-  - type: textarea
-    id: solution
-    attributes:
-      label: "Proposed Solution"
-      description: "Describe the feature or change you'd like to see."
-      placeholder: "e.g. Allow archetypes to inherit type annotations from parent definitions..."
-    validations:
-      required: true
-
-  - type: textarea
-    id: example
-    attributes:
-      label: "Example / Mockup"
-      description: "Provide a code snippet, pseudocode, or mockup that illustrates how this feature would work."
-      placeholder: |
-        ```jac
-        # Example of the proposed feature
-        ```
-
-  - type: textarea
-    id: alternatives
-    attributes:
-      label: "Alternatives Considered"
-      description: "Have you tried any workarounds or considered alternative approaches?"
-
   - type: dropdown
-    id: area
+    id: component
     attributes:
-      label: "Area of the Project"
-      description: "Which part of Jaseci does this feature relate to?"
+      label: "Target Component"
       options:
-        - "Jac Language / Compiler"
-        - "Runtime / Interpreter"
-        - "Standard Library"
-        - "CLI / Tooling"
+        - "jaclang — Language / Syntax"
+        - "jaclang — Type System"
+        - "jaclang — Compiler"
+        - "jaclang — Runtime"
+        - "jaclang — Standard Library"
+        - "jaclang — CLI Tooling"
+        - "jac-byllm — LLM Integration"
+        - "jac-byllm — Semantic Strings (sem)"
+        - "jac-client — Frontend / JSX"
+        - "jac-scale — Deployment / Kubernetes"
+        - "jac-scale — Database / Storage"
+        - "jac-scale — Auth / SSO"
         - "LSP / IDE Integration"
         - "Documentation"
         - "Other"
@@ -64,7 +30,7 @@ body:
   - type: dropdown
     id: priority
     attributes:
-      label: "Priority (from your perspective)"
+      label: "Priority"
       options:
         - "Nice to have"
         - "Important"
@@ -73,17 +39,27 @@ body:
       required: true
 
   - type: textarea
-    id: additional-context
+    id: problem
     attributes:
-      label: "Additional Context"
-      description: "Any other context, references, or related issues."
+      label: "Problem Statement"
+      description: "What problem does this feature solve?"
+      placeholder: "e.g. Currently, walkers cannot share type annotations across archetypes..."
+    validations:
+      required: true
 
-  - type: checkboxes
-    id: checklist
+  - type: textarea
+    id: solution
     attributes:
-      label: "Pre-submission Checklist"
-      options:
-        - label: "I have searched existing issues and this is not a duplicate."
-          required: true
-        - label: "I am willing to help implement this feature if guidance is provided."
-          required: false
+      label: "Proposed Solution"
+      placeholder: "e.g. Allow archetypes to inherit type annotations from parent definitions..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: example
+    attributes:
+      label: "Example / Mockup"
+      placeholder: |
+        ```jac
+        # Example of the proposed feature
+        ```

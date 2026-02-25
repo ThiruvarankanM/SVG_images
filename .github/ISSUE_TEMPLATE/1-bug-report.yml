@@ -4,51 +4,38 @@ title: "[Bug]: "
 labels: ["Type: Bug"]
 assignees: []
 body:
-  - type: markdown
+  - type: dropdown
+    id: component
     attributes:
-      value: |
-        Thanks for taking the time to file a bug report!
-        Please fill in as much detail as possible to help us reproduce and fix the issue quickly.
-        > **Tip:** Search [existing issues](https://github.com/Jaseci-Labs/jaseci/issues) before submitting to avoid duplicates.
-
-  - type: textarea
-    id: summary
-    attributes:
-      label: "Summary"
-      description: "A clear and concise one-sentence description of the bug."
-      placeholder: "e.g. `jac run` crashes with a KeyError when using walkers with inherited archetypes."
+      label: "Affected Component"
+      options:
+        - "jaclang — Compiler / Type System"
+        - "jaclang — Runtime / Interpreter"
+        - "jaclang — Standard Library"
+        - "jaclang — CLI (jac run, jac test, etc.)"
+        - "jac-byllm — LLM Integration / by llm() syntax"
+        - "jac-byllm — Semantic Strings (sem)"
+        - "jac-client — JSX / Frontend Compilation"
+        - "jac-client — Vite Bundling"
+        - "jac-scale — Kubernetes / Deployment"
+        - "jac-scale — Redis / MongoDB Integration"
+        - "jac-scale — FastAPI / Server"
+        - "jac-super — Rich CLI Output"
+        - "jaseci — Meta-package / Install"
+        - "LSP / IDE Integration"
+        - "Other"
     validations:
       required: true
 
-  - type: textarea
-    id: reproduce
+  - type: dropdown
+    id: severity
     attributes:
-      label: "Steps to Reproduce"
-      description: "Provide minimal steps or a code snippet that reliably reproduces the issue."
-      placeholder: |
-        1. Create a `.jac` file with the following code:
-           ```jac
-           # minimal reproduction
-           ```
-        2. Run `jac run <file>.jac`
-        3. Observe the error
-    validations:
-      required: true
-
-  - type: textarea
-    id: expected
-    attributes:
-      label: "Expected Behavior"
-      description: "What did you expect to happen?"
-    validations:
-      required: true
-
-  - type: textarea
-    id: actual
-    attributes:
-      label: "Actual Behavior"
-      description: "What actually happened? Include the full error output or stack trace if applicable."
-      render: shell
+      label: "Severity"
+      options:
+        - "Critical — Crashes / Data loss / Blocks all usage"
+        - "High — Major feature broken, no workaround"
+        - "Medium — Feature broken, workaround exists"
+        - "Low — Minor inconvenience"
     validations:
       required: true
 
@@ -84,19 +71,40 @@ body:
       required: true
 
   - type: textarea
-    id: additional-context
+    id: summary
     attributes:
-      label: "Additional Context"
-      description: "Any other context, logs, screenshots, or related issues that may help."
+      label: "Summary"
+      description: "A clear, one-sentence description of the bug."
+      placeholder: "e.g. `jac run` crashes with a KeyError when using walkers with inherited archetypes."
+    validations:
+      required: true
 
-  - type: checkboxes
-    id: checklist
+  - type: textarea
+    id: reproduce
     attributes:
-      label: "Pre-submission Checklist"
-      options:
-        - label: "I have searched existing issues and this is not a duplicate."
-          required: true
-        - label: "I have included a minimal reproducible example."
-          required: true
-        - label: "I have included the full error output or stack trace."
-          required: false
+      label: "Steps to Reproduce"
+      placeholder: |
+        1. Create a `.jac` file with:
+           ```jac
+           # minimal reproduction
+           ```
+        2. Run `jac run <file>.jac`
+        3. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected Behavior"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual Behavior"
+      description: "Paste the full error output or stack trace."
+      render: shell
+    validations:
+      required: true
