@@ -12,9 +12,7 @@ body:
     attributes:
       value: |
         ### Thank you for helping us improve Jaseci!
-
         To ensure we can address your report efficiently, please fill out all sections and provide as much detail as possible.
-
         Before submitting, search [existing issues](https://github.com/Jaseci-Labs/jaseci/issues) to avoid duplicates.
 
   - type: markdown
@@ -62,29 +60,16 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: byllm-version
+  - type: textarea
+    id: optional-versions
     attributes:
-      label: "jac-byllm Version"
-      placeholder: "e.g. 0.5.0"
-
-  - type: input
-    id: client-version
-    attributes:
-      label: "jac-client Version"
-      placeholder: "e.g. 0.2.19"
-
-  - type: input
-    id: scale-version
-    attributes:
-      label: "jac-scale Version"
-      placeholder: "e.g. 0.1.10"
-
-  - type: input
-    id: super-version
-    attributes:
-      label: "jac-super Version"
-      placeholder: "e.g. 0.1.4"
+      label: "Other Jaseci Stack Versions"
+      description: "Fill in the versions of any other jac-* packages in your stack (leave blank if not installed)."
+      placeholder: |
+        | Package    | Version | Package    | Version |
+        |------------|---------|------------|---------|
+        | jac-byllm  |         | jac-client |         |
+        | jac-scale  |         | jac-super  |         |
 
   - type: markdown
     attributes:
