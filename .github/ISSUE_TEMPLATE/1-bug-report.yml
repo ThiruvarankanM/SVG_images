@@ -11,8 +11,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        ### Thank you for helping us improve Jaseci!
-        To ensure we can address your report efficiently, please fill out all sections and provide as much detail as possible.
+        **Thank you for helping us improve Jaseci!**<br>
+        To ensure we can address your report efficiently, please fill out all sections and provide as much detail as possible.<br>
         Before submitting, search [existing issues](https://github.com/Jaseci-Labs/jaseci/issues) to avoid duplicates.
 
   - type: markdown
@@ -60,16 +60,33 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: optional-versions
+  - type: markdown
     attributes:
-      label: "Other Jaseci Stack Versions"
-      description: "Fill in the versions of any other jac-* packages in your stack (leave blank if not installed)."
-      placeholder: |
-        | Package    | Version | Package    | Version |
-        |------------|---------|------------|---------|
-        | jac-byllm  |         | jac-client |         |
-        | jac-scale  |         | jac-super  |         |
+      value: "**Other Jaseci Stack Versions** *(leave blank if not installed)*"
+
+  - type: input
+    id: byllm-version
+    attributes:
+      label: "jac-byllm Version"
+      placeholder: "e.g. 0.5.0"
+
+  - type: input
+    id: client-version
+    attributes:
+      label: "jac-client Version"
+      placeholder: "e.g. 0.2.19"
+
+  - type: input
+    id: scale-version
+    attributes:
+      label: "jac-scale Version"
+      placeholder: "e.g. 0.1.10"
+
+  - type: input
+    id: super-version
+    attributes:
+      label: "jac-super Version"
+      placeholder: "e.g. 0.1.4"
 
   - type: markdown
     attributes:
@@ -103,8 +120,10 @@ body:
       label: "Actual Behavior"
       description: "Paste the full error output or stack trace."
       placeholder: |
+        ```
         TypeError: can only concatenate str (not "NoneType") to str
           File "test.jac", line 6, in say_hello
+        ```
       render: shell
     validations:
       required: true
