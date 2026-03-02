@@ -30,6 +30,10 @@ body:
 
   - type: markdown
     attributes:
+      value: "---"
+
+  - type: markdown
+    attributes:
       value: "## Environment"
 
   - type: dropdown
