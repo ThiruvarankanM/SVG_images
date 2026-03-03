@@ -6,15 +6,7 @@ assignees: []
 body:
   - type: markdown
     attributes:
-      value: "---"
-
-  - type: markdown
-    attributes:
       value: "### Thank you for helping us improve the Jaseci documentation!"
-
-  - type: markdown
-    attributes:
-      value: "---"
 
   - type: dropdown
     id: doc-issue-type
@@ -36,7 +28,6 @@ body:
     id: doc-section
     attributes:
       label: "Affected Section"
-      description: "Which part of the Jaseci docs is this about?"
       options:
         - "Quick Guide — Getting Started"
         - "Quick Guide — Core Features"
@@ -57,10 +48,6 @@ body:
     attributes:
       label: "Link to Page / File"
       placeholder: "e.g. https://www.jac-lang.org/docs/... or docs/docs/reference/language/foundation.md"
-
-  - type: markdown
-    attributes:
-      value: "---"
 
   - type: textarea
     id: description
