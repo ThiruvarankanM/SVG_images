@@ -4,11 +4,6 @@ title: "[Feature]: "
 labels: ["Type: Feature"]
 assignees: []
 body:
-  - type: markdown
-    attributes:
-      value: "### We love hearing ideas from the community!"
-
-
   - type: textarea
     id: description
     attributes:
