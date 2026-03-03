@@ -4,10 +4,6 @@ title: "[Docs]: "
 labels: ["Type: Documentation"]
 assignees: []
 body:
-  - type: markdown
-    attributes:
-      value: "### Thank you for helping us improve the Jaseci documentation!"
-
   - type: dropdown
     id: doc-issue-type
     attributes:
@@ -53,7 +49,6 @@ body:
     id: description
     attributes:
       label: "Description"
-      description: "What is missing, incorrect, or needs improvement?"
       placeholder: "e.g. The edge filtering section is missing an explanation for `[->:Friend:->]` syntax."
     validations:
       required: true
