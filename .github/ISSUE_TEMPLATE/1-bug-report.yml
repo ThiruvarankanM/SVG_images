@@ -11,10 +11,6 @@ body:
         To ensure we can address your report efficiently, please fill out all sections and provide as much detail as possible.
         Before submitting, search [existing issues](https://github.com/Jaseci-Labs/jaseci/issues) to avoid duplicates.
 
-  - type: markdown
-    attributes:
-      value: "## Environment"
-
   - type: dropdown
     id: os
     attributes:
