@@ -1,0 +1,86 @@
+name: Jac Adoption Stats
+
+on:
+  schedule:
+    # Every Monday at 9:00 AM UTC
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+    inputs:
+      output_mode:
+        description: "Where to post the report"
+        required: false
+        default: "summary"
+        type: choice
+        options:
+          - summary
+          - issue
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  adoption-stats:
+    name: Collect adoption stats
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate adoption report
+        id: report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/adoption_stats.py --output report.md
+          echo "Generated report:"
+          cat report.md
+
+      - name: Post to GitHub Step Summary
+        run: cat report.md >> $GITHUB_STEP_SUMMARY
+
+      - name: Create or update tracking issue
+        if: >
+          github.event_name == 'schedule' ||
+          (github.event_name == 'workflow_dispatch' && inputs.output_mode == 'issue')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          ISSUE_TITLE="Jac Adoption Stats — Weekly Report"
+          REPORT=$(cat report.md)
+
+          # Check if a tracking issue already exists
+          EXISTING=$(gh issue list \
+            --label "adoption-stats" \
+            --state open \
+            --limit 1 \
+            --json number \
+            --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            # Add a comment with this week's report
+            gh issue comment "$EXISTING" --body "$REPORT"
+            echo "Added comment to issue #$EXISTING"
+          else
+            # Create a new pinned tracking issue
+            gh issue create \
+              --title "$ISSUE_TITLE" \
+              --body "$REPORT" \
+              --label "adoption-stats"
+            echo "Created new tracking issue"
+          fi
+
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: adoption-report-${{ github.run_id }}
+          path: report.md
+          retention-days: 90
